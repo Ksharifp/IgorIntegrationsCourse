@@ -7,7 +7,6 @@ public with sharing class IPAddressRequest {
         public String message;
     }
     
-    @AuraEnabled
     public static IPAddressResponse getTransactionIPAddress() {
         IPAddressResponse response = new IPAddressResponse();
         
@@ -22,7 +21,7 @@ public with sharing class IPAddressRequest {
             if (httpResponse.getStatusCode() == 200) {
                 Map<String, Object> responseMap = (Map<String, Object>) JSON.deserializeUntyped(httpResponse.getBody());
                 
-                response.ipAddress = String.valueOf(responseMap.get('ip'));
+                response.ipAddress = String.valueOf(responseMap.get('IP'));
                 response.status = 'SUCCESS';
                 response.message = 'IP Address retrieved successfully';
             } else {
