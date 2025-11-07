@@ -11,11 +11,12 @@ public with sharing class IPAddressRequest {
         IPAddressResponse response = new IPAddressResponse();
         
         try {
-            Http http = new Http();
+            
             HttpRequest request = new HttpRequest();
             request.setEndpoint(ENDPOINT);
             request.setMethod('GET');
             
+            Http http = new Http();
             HttpResponse httpResponse = http.send(request);
             
             if (httpResponse.getStatusCode() == 200) {
