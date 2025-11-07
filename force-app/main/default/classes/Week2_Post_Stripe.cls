@@ -17,6 +17,7 @@ public with sharing class Week2_Post_Stripe {
             LIMIT 1
         ];
 
+        //encoding saleforce data for Stripe
         String body = 'email=' + EncodingUtil.urlEncode(contact.Email, 'UTF-8') +
                   '&name=' + EncodingUtil.urlEncode(contact.FirstName + ' ' + contact.LastName, 'UTF-8');
         

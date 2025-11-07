@@ -11,11 +11,11 @@ System.debug('My name is ' + tempvar);
 */
 Contact customer = new Contact();
 
-customer.FirstName = 'Jakarta';
-customer.LastName = 'Jordan';
-customer.Phone = '(888) 999-0096';
+customer.FirstName = 'Tiara';
+customer.LastName = 'Tamara';
+customer.Phone = '(888) 999-0097';
 customer.email = 'kh.sh.2002@gmail.com';
-customer.Description = 'Stripe Customer 6';
+customer.Description = 'Stripe Customer 10';
 
 insert customer; 
 
