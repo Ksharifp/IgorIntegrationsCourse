@@ -26,7 +26,7 @@ public with sharing class Week2_Post_Stripe {
             body += '&phone=' + EncodingUtil.urlEncode(contact.Phone, 'UTF-8');
         }
         
-        //adds description if it exists
+        //adds description if it exists 
         if (String.isNotBlank(contact.Description)) {
             body += '&description=' + EncodingUtil.urlEncode(contact.Description, 'UTF-8');
         }
