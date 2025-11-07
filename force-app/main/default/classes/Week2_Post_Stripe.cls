@@ -21,10 +21,12 @@ public with sharing class Week2_Post_Stripe {
         String body = 'email=' + EncodingUtil.urlEncode(contact.Email, 'UTF-8') +
                   '&name=' + EncodingUtil.urlEncode(contact.FirstName + ' ' + contact.LastName, 'UTF-8');
         
+        //adds phone if it exists
         if (String.isNotBlank(contact.Phone)) {
             body += '&phone=' + EncodingUtil.urlEncode(contact.Phone, 'UTF-8');
         }
         
+        //adds description if it exists
         if (String.isNotBlank(contact.Description)) {
             body += '&description=' + EncodingUtil.urlEncode(contact.Description, 'UTF-8');
         }
