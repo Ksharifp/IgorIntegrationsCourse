@@ -19,4 +19,4 @@ customer.Description = 'Stripe Customer 10';
 
 insert customer; 
 
-Week2_Post_Stripe.createStripeCustomer(customer.Id);
+//

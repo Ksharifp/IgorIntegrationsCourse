@@ -6,7 +6,6 @@ public with sharing class Week2_Post_Stripe {
             public String description;
         }
 
-    @future(callout=true) //using future method because HTTP will not run after DML
     public static void createStripeCustomer(Id contactId) {
         //ideally have a trigger to send the new contact into this class
         //get contact information of the new contact
