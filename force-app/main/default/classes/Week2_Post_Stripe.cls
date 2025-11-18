@@ -1,21 +1,5 @@
 public with sharing class Week2_Post_Stripe {
-    public class StripeCustomer {
-            public String email;
-            public String name;
-            public String phone;
-            public String description;
-        }
-
-    public static void createStripeCustomer(Id contactId) {
-        //ideally have a trigger to send the new contact into this class
-        //get contact information of the new contact
-        Contact contact = [
-            SELECT Id, FirstName, LastName, Phone, Email, Description, MailingCity, MailingCountry
-            FROM Contact
-            WHERE Id = : contactId
-            LIMIT 1
-        ];
-
+/*
         //encoding saleforce data for Stripe
         String body = 'email=' + EncodingUtil.urlEncode(contact.Email, 'UTF-8') +
                   '&name=' + EncodingUtil.urlEncode(contact.FirstName + ' ' + contact.LastName, 'UTF-8');
@@ -45,5 +29,5 @@ public with sharing class Week2_Post_Stripe {
         System.debug('response body'+ response.getBody());
         System.debug('status code'+ response.getStatusCode());
         System.debug('status'+ response.getStatus());
-    }
+    }*/
 }
