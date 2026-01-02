@@ -29,6 +29,7 @@ public with sharing class IPAddressRequest {
                 response.status = 'ERROR';
                 response.message = 'HTTP Request failed with status code: ' + httpResponse.getStatusCode();
             }
+            
         } catch (Exception e) {
             response.status = 'ERROR';
             response.message = 'Error: ' + e.getMessage();
