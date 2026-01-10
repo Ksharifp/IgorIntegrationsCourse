@@ -26,4 +26,4 @@ public with sharing class ErrorLogger {
             exceptionToLog.getStackTraceString()
         );
     }
-}
+} 
