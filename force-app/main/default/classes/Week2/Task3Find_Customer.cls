@@ -1,4 +1,5 @@
 public with sharing class Task3Find_Customer implements Queueable, Database.AllowsCallouts {
+    //to check whether a customer exists in Stripe matching the email address
     private List <Id> contactIds;
     private String apiKey = 'sk_test_51SPbrHFjhktOljT6TXYjybNZR02vcSLe8wLoNjkBGoO8dcu5txOstL0m4gZIxcTd1ZJJqIExW72AcosloNhzn5gt00dbBk0V8G';
 
