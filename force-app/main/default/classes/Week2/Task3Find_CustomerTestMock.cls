@@ -42,7 +42,7 @@ public with sharing class Task3Find_CustomerTestMock implements HttpCalloutMock{
             // Return update response
             HttpResponse response = new HttpResponse();
             response.setHeader('Content-Type', 'application/json');
-            response.setBody(foundCustomerBody);
+            response.setBody(updateResponseBody);
             response.setStatusCode(200);
             return response;
         }
@@ -52,9 +52,14 @@ public with sharing class Task3Find_CustomerTestMock implements HttpCalloutMock{
             // Return create response
             HttpResponse response = new HttpResponse();
             response.setHeader('Content-Type', 'application/json');
-            response.setBody(notFoundCustomerBody);
+            response.setBody(createResponseBody);
             response.setStatusCode(200);
             return response;
         }
+
+        //to check for when none of the if statements are true
+        HttpResponse response = new HttpResponse();
+        response.setStatusCode(404);  
+        return response;
     }
 }

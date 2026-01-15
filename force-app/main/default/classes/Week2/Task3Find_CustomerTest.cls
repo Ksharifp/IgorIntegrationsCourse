@@ -20,10 +20,48 @@
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
 @isTest
-private class Task3Find_CustomerTest {
+public class Task3Find_CustomerTest {
 
     @isTest
-    static void myUnitTest() {
-        // TO DO: implement unit test
+    static void customerFoundTest() {
+        Contact existingCon = new Contact();
+        existingCon.Email = 'test@test.com';
+        existingCon.FirstName = 'Test1';
+        existingCon.LastName = 'Test1';
+        insert existingCon;
+    
+
+    Test.setMock(HttpCalloutMock.class, new Task3Find_CustomerTestMock(true));
+
+    Test.startTest();
+    Task3Find_Customer task = new Task3Find_Customer(new List<Id> { existingCon.Id });
+    System.enqueueJob(task);
+    Test.stopTest();
+
+    Contact customer = [SELECT Id, Email FROM Contact WHERE Id = :existingCon.Id];
+    System.assertNotEquals(null, customer, 'Contact should still exist after processing');
+    
     }
+
+    @isTest
+    static void customerNotFoundTest() {
+        Contact existingCon = new Contact();
+        existingCon.Email = 'test@test.com';
+        existingCon.FirstName = 'Test1';
+        existingCon.LastName = 'Test1';
+        insert existingCon;
+    
+
+    Test.setMock(HttpCalloutMock.class, new Task3Find_CustomerTestMock(false));
+
+    Test.startTest();
+    Task3Find_Customer task = new Task3Find_Customer(new List<Id> { existingCon.Id });
+    System.enqueueJob(task);
+    Test.stopTest();
+
+    Contact customer = [SELECT Id, Email FROM Contact WHERE Id = :existingCon.Id];
+    System.assertNotEquals(null, customer, 'Contact should still exist after processing');
+    
+    }
+
 }
